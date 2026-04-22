@@ -1,41 +1,41 @@
 ---
 name: proslide-extend
 description: |
-  ProSlide content extension sub-skill. Used when the main skill `proslide` confirms user needs content extension.
-  Trigger condition: user materials are too sparse to support a complete page structure, need logical deduction based on existing information to supplement content.
+  ProSlide 内容延伸子skill。当主skill `proslide` 确认用户需要延伸内容时使用。
+  触发条件：用户素材过少，无法支撑完整页面结构，需要基于已有信息逻辑推导补充内容。
 ---
 
 # ProSlide Extend
 
-Logical deduction-based content extension from existing materials. Fabricating facts is strictly prohibited.
+基于已有素材的逻辑推导式内容延伸。禁止虚构事实。
 
-## Trigger Condition
+## 触发条件
 
-User selects "need content extension" and materials are clearly insufficient to support the target page count's complete structure.
+用户选择"需要延伸内容"，且素材明显不足以支撑目标页数的完整结构时执行。
 
-## Supplementable Dimensions
+## 可补充维度
 
-Selectively supplement one or more from the following dimensions based on material gaps and report type:
+根据素材缺口和报告类型，从以下维度中选择性地补充一种或多种：
 
-- **Background**: Business environment, policy drivers, historical evolution
-- **Problem / Pain Point**: Phenomenon description, impact scope, severity
-- **Goal**: Quantified indicators, time nodes, coverage scope
-- **Solution Path**: Overall strategy, phase division, core ideas
-- **Key Actions**: Specific measures, responsibility division, resource input
-- **Expected Results**: Quantifiable effects, comparison baseline
-- **Risks and Constraints**: Potential risks, response plans, resource limitations
-- **Conclusions and Suggestions**: Core judgments, next actions, decision recommendations
+- **背景**：项目的业务环境、政策驱动、历史沿革
+- **问题/痛点**：现象描述、影响范围、严重程度
+- **目标**：量化指标、时间节点、覆盖范围
+- **方案路径**：整体策略、阶段划分、核心思路
+- **关键动作**：具体举措、责任分工、资源投入
+- **预期结果**：可量化的效果、对比基准
+- **风险与约束**：潜在风险、应对预案、资源限制
+- **结论与建议**：核心判断、下一步行动、决策建议
 
-## Core Rules
+## 核心规则
 
-1. **Logical deduction**: All supplemented content must be reasonably inferred from original materials and cannot deviate from the topic
-2. **Non-factual expression**: Must be presented in the form of "suggestions / inferences / extendable directions", clearly distinguished from user's original materials
-3. **No fabrication**: Strictly prohibited from making up specific data, names, departments, times, cases, and other factual information
-4. **User confirmation**: After outputting extended content, must ask whether user adopts it. Without confirmation, it cannot be directly used for generation.
+1. **逻辑推导**：所有补充内容必须基于原始素材进行合理推断，不能脱离主题
+2. **非事实性表述**：必须以"建议/推断/可延展方向"的形式呈现，明确区分于用户原始素材
+3. **禁止伪造**：严禁编造具体数据、人名、部门、时间、案例等事实性信息
+4. **用户确认**：输出延伸内容后，必须询问用户是否采纳，未经确认不得直接用于生成
 
-## Output Format
+## 输出格式
 
-1. **Original material summary**: Briefly summarize information already provided by user
-2. **Missing dimension judgment**: Point out which dimensions have gaps
-3. **Extension content suggestions**: Graded output by "suggested supplement / extendable direction / inference"
-4. **User confirmation**: Ask whether user adopts these extended content
+1. **原始素材摘要**：简要概括用户已提供的信息
+2. **缺失维度判断**：指出哪些维度存在缺口
+3. **延伸内容建议**：按"建议补充 / 可延展方向 / 推断"分级输出
+4. **用户确认**：询问用户是否采纳这些延伸内容

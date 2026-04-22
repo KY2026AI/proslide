@@ -1,55 +1,55 @@
 ---
 name: proslide-chart
 description: |
-  ProSlide chart design sub-skill. Used when the main skill `proslide` involves ECharts chart generation or chart review.
-  Trigger condition: the page needs to insert bar charts, line charts, pie charts, stacked charts, scatter plots, radar charts, and other data visualizations.
+  ProSlide 图表设计子 skill。当主 skill `proslide` 涉及 ECharts 图表生成或图表审查时使用。
+  触发条件：页面需要插入柱状图、折线图、饼图、堆积图、散点图、雷达图等数据可视化图表。
 ---
 
 # ProSlide Chart
 
-Chart design principles: reasonable, concise, non-misleading.
+图表设计原则：合理、简洁、不误导。
 
-## I. Chart Selection Rules
+## 一、图表选择规则
 
-Choose based on data structure and expression purpose:
-- **Bar/Column Chart**: Category comparison, horizontal comparison
-- **Line Chart**: Time trends, change processes
-- **Pie Chart**: Composition proportions (few and clear categories)
-- **Stacked Chart**: Total and component changes
-- **Scatter Plot**: Correlation, distribution identification
-- **Radar Chart**: Multi-dimensional indicator relative comparison
+根据数据结构和表达目的选择：
+- **柱状图/条形图**：类别对比、横向比较
+- **折线图**：时间趋势、变化过程
+- **饼图**：构成占比（类别少且清晰）
+- **堆积图**：总量及组成部分变化
+- **散点图**：相关性、分布识别
+- **雷达图**：多维指标相对比较
 
-When type mismatch occurs, suggest a more suitable chart instead of forcing the drawing.
+类型不匹配时，建议更合适的图表，不强行绘制。
 
-## II. Rationality Constraints
+## 二、合理性约束
 
-- Prohibit forcing indicators with different dimensions or vastly different magnitudes into the same axis
-- No more than 3 colors in the same chart (excluding grayscale accents)
-- Stacked charts only applicable to additive items; target values suggest dashed frames, reference lines, or independent series
-- Axis truncation, dual-axis charts, and mixed percentage/absolute value usage must clearly label口径
-- Too many pie slices → switch to bar chart
+- 禁止将量纲不同或数量级差异过大的指标硬塞进同一坐标轴
+- 同一图表内颜色不超过 3 种（不含灰阶辅助色）
+- 堆积图仅适用于可加总项；目标值建议用虚线框、参考线或独立系列表示
+- 坐标轴截断、双轴图、百分比与绝对值混用时必须明确标注口径
+- 饼图切片过多时改用条形图
 
-## III. Simplicity Constraints
+## 三、简洁性约束
 
-- Grid lines: default to removed or extremely weakened
-- Borders/shadows: no shadows on chart containers, border ≤ 1px
-- Data labels: preferentially label key values, avoid full labeling causing occlusion
-- When chart is too complex, prefer splitting into multiple charts
+- 网格线：默认去掉或极度弱化
+- 边框/阴影：图表容器不使用阴影，边框 ≤ 1px
+- 数据标签：优先标注关键值，避免全部标注导致遮挡
+- 图表过复杂时优先拆图
 
-## IV. Default Color Scheme
+## 四、默认配色
 
 ```js
 color: ['#001E50', '#00B0F0', '#C00000']
 ```
 
-- Primary: core series or main conclusion
-- Accent: comparison series
-- Warning: anomalies, risks, key emphasis
-- Grayscale: auxiliary information, background, secondary labels
-- No 3D charts or strong gradients
+- 主色：核心系列或主结论
+- 辅色：对比系列
+- 警示色：异常、风险、重点强调
+- 灰阶：辅助信息、背景、次要标签
+- 不使用 3D 图表和强烈渐变
 
-## V. Page-Level Requirements
+## 五、页面级要求
 
-- Chart titles should directly express the conclusion
-- Each chart should preferably carry only one core conclusion
-- Charts serve the page narrative and should not become standalone exhibits
+- 图表标题应直接表达结论
+- 每张图尽量只承载一个核心结论
+- 图表服务于页面叙事，不应成为独立展示物

@@ -1,130 +1,130 @@
 ---
 name: proslide-review
 description: |
-  ProSlide content review sub-skill. Used when the main skill `proslide` needs content diagnosis.
-  Trigger conditions: user materials need content review, gap identification, typo checking.
+  ProSlide 内容审查子skill。当主skill `proslide` 需要进行内容诊断时使用。
+  触发条件：用户素材需要内容审查、缺口识别、错别字检查。
 ---
 
 # ProSlide Review
 
-Content diagnosis framework. Output can be directly presented to the user.
+内容诊断框架。输出可直接呈现给用户的诊断结果。
 
-## I. Review Main Process (Five-Layer Review Model)
+## 一、审查主流程（五层审查模型）
 
-Execute sequentially:
-1. **Audience identification**: Identify reporting target, level, and focus areas
-2. **Purpose identification**: Identify the PPT's purpose, usage scenario, and expected outcome
-3. **Type identification**: Determine PPT type and call the corresponding special diagnosis framework
-4. **Confirm identification results**: Present audience, purpose, and type identification conclusions to the user, **ask whether they are correct or need correction**. Without user confirmation, do not proceed to the next step.
-5. **Content diagnosis**: Review material completeness, logic, audience fit, and expression structure
-6. **Optimization suggestions output**: Output supplement, adjustment, reorganization, and correction suggestions by priority
+逐层执行：
+1. **受众识别**：识别汇报对象、层级、关注重点
+2. **目的识别**：识别本次PPT的汇报目的、使用场景与预期结果
+3. **类型识别**：判断PPT所属类型，并调用对应专项诊断框架
+4. **确认识别结果**：向用户呈现受众、目的、类型的识别结论，**询问是否正确或需要修正**。未经用户确认，不得进入下一步诊断。
+5. **内容诊断**：对素材完整性、逻辑性、受众适配性、表达结构进行审查
+6. **优化建议输出**：按优先级输出补充、调整、重组、修正建议
 
-## II. Special Diagnosis Frameworks
+## 二、专项诊断框架
 
-### 2.1 General Diagnosis Dimensions
+### 2.1 通用诊断维度
 
-Applicable to all PPT types:
-- **Content completeness**: Does it have the necessary information to support this type of PPT?
-- **Logical coherence**: Do the contents form a complete argument chain?
-- **Audience fit**: Does it address the core concerns of the audience?
-- **Expression structure fit**: Is it suitable for PPT presentation? Is there information overload, repetition, or hierarchy confusion?
+适用于所有PPT类型：
+- **内容完整性**：是否具备支撑该类型PPT的必要信息
+- **逻辑连贯性**：内容之间是否形成完整论证链
+- **受众适配性**：是否回应受众核心关切
+- **表达结构适配性**：是否适合PPT呈现，是否存在信息过载、重复或层级混乱
 
-### 2.2 Type-Specific Diagnosis
+### 2.2 类型专项诊断
 
-| Type | Special Diagnosis Framework |
-|------|----------------------------|
-| Achievement Report | Goal-Achievement-Comparison-Value |
-| Problem Solving | Phenomenon-Impact-Root Cause-Evidence |
-| Work Plan | Goal-Path-Tasks-Guarantee |
-| Training / Sharing | Method-Case-Replicability |
-| Job Performance / Competition | Performance-Ability-Match-Planning |
-| Project Launch / Proposal | Background-Goal-Scope-Plan-Resources-Risks |
-| Project Progress / Retrospective | Progress-Milestones-Risks-Resources |
-| Special Report | Topic Focus-Analysis-Conclusion-Suggestion |
-| Party Building | Position-Implementation-Mechanism-Effectiveness |
+| 类型 | 专项诊断框架 |
+|------|--------------|
+| 成果汇报类 | 目标-成果-对比-价值 |
+| 问题解决类 | 现象-影响-根因-证据 |
+| 工作方案类 | 目标-路径-任务-保障 |
+| 培训/分享类 | 方法-案例-可复制性 |
+| 述职/竞聘类 | 业绩-能力-匹配-规划 |
+| 项目启动/立项类 | 背景-目标-范围-计划-资源-风险 |
+| 项目进度/复盘类 | 进展-节点-风险-资源 |
+| 专题汇报类 | 议题聚焦-分析-结论-建议 |
+| 党建类 | 站位-落实-机制-成效 |
 
-## III. Problem Solving Special Diagnosis: Four-Layer Diagnosis
+## 三、问题解决类专项诊断：四层诊断法
 
-Enabled only when type is identified as problem solving, rectification, or special governance.
+四层诊断法仅在类型识别为问题解决类、整改类、专项治理类等场景时启用。
 
-| Layer | Checkpoints |
-|-------|-------------|
-| Phenomenon | Is the object, scope, time, and degree clear? Avoid vague descriptions |
-| Impact | Is the business impact, risk consequence, or management consequence explained? |
-| Root Cause | Are 5Why/Fishbone/5M1E used? Are surface causes distinguished from deep causes? |
-| Evidence | Are there data, cases, comparisons, sources, etc. to support it? |
+| 层次 | 检查点 |
+|------|--------|
+| 现象 | 是否明确对象、范围、时间、程度，避免笼统描述 |
+| 影响 | 是否说明业务影响、风险后果或管理后果 |
+| 根因 | 是否使用5Why/鱼骨图/5M1E等方法展开，是否区分表层原因与深层原因 |
+| 证据 | 是否有数据、案例、对比、来源等支撑 |
 
-## III-2. Project Launch / Proposal Special Diagnosis: Six-Layer Diagnosis
+## 三-2. 项目启动/立项类专项诊断：六层诊断法
 
-Enabled only when type is identified as project launch / proposal.
+六层诊断法仅在类型识别为项目启动/立项类时启用。
 
-| Layer | Checkpoints |
-|-------|-------------|
-| Background | Is the project source, business driver, policy requirement, or market opportunity explained? |
-| Goal | Are goals clear, quantifiable, and strategically aligned? |
-| Scope | Are project boundaries clear — what's included and excluded? |
-| Plan | Are milestones, key nodes, and deliverables clear? |
-| Resources | Are personnel, budget, technology, and external support in place or have acquisition paths? |
-| Risks | Are major risks identified and preliminary response plans formed? |
+| 层次 | 检查点 |
+|------|--------|
+| 背景 | 是否说明项目来源、业务驱动、政策要求或市场机会 |
+| 目标 | 目标是否清晰、可量化、与战略对齐 |
+| 范围 | 项目边界是否明确，包含什么、不包含什么 |
+| 计划 | 里程碑、关键节点、交付物是否清晰 |
+| 资源 | 人员、预算、技术、外部支持是否到位或有获取路径 |
+| 风险 | 主要风险是否识别，应对预案是否初步形成 |
 
-## III-3. Project Progress / Retrospective Special Diagnosis: Four-Layer Diagnosis
+## 三-3. 项目进度/复盘类专项诊断：四层诊断法
 
-Enabled only when type is identified as project progress / retrospective.
+四层诊断法仅在类型识别为项目进度/复盘类时启用。
 
-| Layer | Checkpoints |
-|-------|-------------|
-| Progress | Current completion rate, comparison with plan, completed key deliverables |
-| Milestones | Milestone achievement status, next phase clear goals and time nodes |
-| Risks | Currently identified risks, occurred problems and handling status |
-| Resources | Resource usage and next-step resource needs |
+| 层次 | 检查点 |
+|------|--------|
+| 进展 | 当前完成度、与计划的对比、已完成的关键交付物 |
+| 节点 | 里程碑达成情况，下一阶段的明确目标与时间节点 |
+| 风险 | 当前识别的风险、已发生的问题及处理状态 |
+| 资源 | 资源使用情况及下一步资源需求 |
 
-## IV. Gap Identification Rules
+## 四、缺口识别规则
 
-### 4.1 Fact Gaps
-- Only opinions, no data
-- Only conclusions, no cases
-- Only descriptions, no scope, time, object boundaries, or statistical口径
-- Only results, no comparison baseline
+### 4.1 事实缺口
+- 只有观点，没有数据
+- 只有结论，没有案例
+- 只有描述，没有范围、时间、对象边界或统计口径
+- 只有结果，没有对比基准
 
-### 4.2 Logic Gaps
-- No causal chain between phenomenon and cause
-- No correspondence between cause and measure
-- No verification relationship between measure and result
-- Conclusion exceeds material support scope
+### 4.2 逻辑缺口
+- 现象与原因之间无因果链
+- 原因与举措之间无对应关系
+- 举措与结果之间无验证关系
+- 结论超出素材支撑范围
 
-### 4.3 Audience Gaps
-- Does not respond to audience core concerns
-- Content focus inconsistent with reporting purpose
-- Expression style does not match audience level or scenario
-- Information granularity mismatched with audience cognition level
+### 4.3 受众缺口
+- 未回应受众核心关切
+- 内容重心与汇报目的不一致
+- 表达方式不符合受众层级或场景
+- 信息粒度与受众认知水平不匹配
 
-## V. Text Validation Rules
+## 五、文本校验规则
 
-- Only check obvious typos, obvious improper word usage, and obvious punctuation errors
-- Output format: `original word -> suggested correction`
-- Be cautious with proper nouns, organization names, and policy terms
-- Mark uncertain items as "suspected"
-- Do not force corrections. Respect original text when user confirms it is correct.
+- 仅检查明显错别字、明显用词不当、明显标点错误
+- 输出格式为：`原词 -> 建议修正`
+- 对专有名词、组织名称、政策术语保持谨慎
+- 对不确定项标记"疑似"
+- 不强制修正，用户确认原表述无误时尊重原文
 
-## VI. Output Format (Phased)
+## 六、输出格式（分阶段）
 
-### Phase 1: Identification Result Confirmation (Must output first)
+### 第一阶段：识别结论确认（必须先输出）
 
-After completing audience identification, purpose identification, and type identification, **first output the following to the user and request confirmation**:
+完成受众识别、目的识别、类型识别后，**首先向用户输出以下信息并请求确认**：
 
-> **Identified report profile:**
-> - **Audience**: xxx
-> - **Purpose**: xxx
-> - **Type**: xxx (corresponding special framework: xxx)
+> **我识别的汇报画像如下：**
+> - **受众**：xxx
+> - **目的**：xxx
+> - **类型**：xxx（对应专项框架：xxx）
 >
-> Is the above identification correct? If there are deviations, please let me know before I proceed to the next diagnosis step.
+> 以上识别是否正确？如有偏差请告诉我，我再进入下一步诊断。
 
-**Only after user confirmation (or correction) can proceed to Phase 2.**
+**用户确认（或修正）后，方可进入第二阶段。**
 
-### Phase 2: Complete Diagnosis Output
+### 第二阶段：完整诊断输出
 
-After user confirms identification results, output:
-1. **Content diagnosis**: completeness, logic, and fit issues
-2. **Gap identification**: fact gaps, logic gaps, audience gaps, text issues
-3. **Optimization suggestions**: graded output by "must supplement / suggest supplement / structure optimization / text correction"
-4. **Necessary follow-up questions**: When information is insufficient for high-confidence suggestions, list minimum necessary questions
+用户确认识别结果后，再输出：
+1. **内容诊断**：完整性、逻辑性、适配性问题
+2. **缺口识别**：事实缺口、逻辑缺口、受众缺口、文本问题
+3. **优化建议**：按"必须补充 / 建议补充 / 结构优化 / 文本修正"分级输出
+4. **必要时追问**：当信息不足以形成高置信度建议时，列出最小必要追问项
