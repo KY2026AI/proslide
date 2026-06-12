@@ -109,12 +109,13 @@ Codex 的 GitHub skill 安装脚本默认读取 `main` 分支。请按 `skills/<
 ```bash
 python scripts/install-skill-from-github.py \
   --repo KY2026AI/proslide \
-  --path skills/proslide \
-  --path skills/proslide-review \
-  --path skills/proslide-extend \
-  --path skills/proslide-chart \
-  --path skills/proslide-speaker-notes \
-  --path skills/proslide-export
+  --path \
+  skills/proslide \
+  skills/proslide-review \
+  skills/proslide-extend \
+  skills/proslide-chart \
+  skills/proslide-speaker-notes \
+  skills/proslide-export
 ```
 
 ## Usage Notes
