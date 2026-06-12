@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Base Slide Template</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }
+.slide {
+  width: 1280px; height: 720px; background: #FFFFFF;
+  position: relative; overflow: hidden;
+}
+.top-line {
+  position: absolute; top: 85px; left: 0;
+  width: 100%; height: 3px; background: #001E50; z-index: 10;
+}
+.logo {
+  position: absolute; top: 15px; right: 30px;
+  width: 180px; height: 55px; object-fit: contain; z-index: 10;
+}
+.page-title {
+  position: absolute; top: 22px; left: 60px; right: 240px;
+  font-size: 30px; font-weight: bold; color: #001E50;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content-area {
+  position: absolute;
+  top: 100px; left: 45px; right: 45px; bottom: 28px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+/* Core insight quote bar */
+.quote-bar {
+  background: #001E50; color: #fff;
+  padding: 12px 20px; border-radius: 6px;
+  font-size: 15px; font-weight: bold;
+  line-height: 1.5;
+}
+
+/* Example card grid */
+.card-row {
+  display: flex; gap: 12px;
+  flex: 1; min-height: 0;
+}
+.card {
+  flex: 1; min-width: 0;
+  background: #F8F9FA; border-radius: 8px;
+  border-top: 4px solid #001E50;
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.card-title {
+  font-size: 15px; font-weight: bold; color: #001E50;
+}
+.card-text {
+  font-size: 13px; color: #444; line-height: 1.5;
+}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="top-line"></div>
+  <img class="logo" src="logo.png" alt="Logo">
+  <div class="page-title">Page Title Goes Here</div>
+
+  <div class="content-area">
+    <div class="quote-bar">
+      This is the core insight summary sentence that captures the main message of the slide.
+    </div>
+
+    <div class="card-row">
+      <div class="card">
+        <div class="card-title">Card 1 Title</div>
+        <div class="card-text">Card content goes here. Use this base template to build your own slide layouts.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Card 2 Title</div>
+        <div class="card-text">Keep text concise and visual hierarchy clear. Remember the audience in the back row.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Card 3 Title</div>
+        <div class="card-text">Use color blocks, icons, and data points to reinforce key messages.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

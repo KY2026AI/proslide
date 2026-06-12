@@ -58,7 +58,7 @@ HTML 预览交付前必须执行四层防打回质检：
 
 ## Layout Rules
 
-生成 HTML 前必须读取 `references/layout-rules.md`。关键约束包括：
+生成 HTML 前必须读取 `skills/proslide/references/layout-rules.md`。关键约束包括：
 
 - 页面固定为 `1280px x 720px`，白底。
 - 内容区固定为 `top: 100px; left: 45px; right: 45px; bottom: 28px`。
@@ -72,14 +72,24 @@ HTML 预览交付前必须执行四层防打回质检：
 
 ```text
 .
-├── SKILL.md
 ├── README.md
-├── evals/
-│   └── evals.json
-└── references/
-    ├── failure-recovery.md
-    ├── layout-rules.md
-    └── preview-qa.md
+├── skills/
+│   ├── proslide/
+│   │   ├── SKILL.md
+│   │   ├── evals/
+│   │   │   └── evals.json
+│   │   └── references/
+│   │       ├── failure-recovery.md
+│   │       ├── layout-rules.md
+│   │       └── preview-qa.md
+│   ├── proslide-chart/
+│   ├── proslide-export/
+│   ├── proslide-extend/
+│   ├── proslide-review/
+│   └── proslide-speaker-notes/
+├── docs/
+├── examples/
+└── src/
 ```
 
 ## Related Skills
@@ -91,6 +101,21 @@ ProSlide 会按阶段调用或参考这些相关 skill：
 - `proslide-chart`：涉及图表或数据可视化时使用。
 - `proslide-speaker-notes`：用户需要讲稿时使用。
 - `proslide-export`：HTML 确认后执行高清截图和 PPTX 封装。
+
+## Install From GitHub
+
+Codex 的 GitHub skill 安装脚本默认读取 `main` 分支。请按 `skills/<skill-name>` 路径安装主 skill 和需要的子 skill：
+
+```bash
+python scripts/install-skill-from-github.py \
+  --repo KY2026AI/proslide \
+  --path skills/proslide \
+  --path skills/proslide-review \
+  --path skills/proslide-extend \
+  --path skills/proslide-chart \
+  --path skills/proslide-speaker-notes \
+  --path skills/proslide-export
+```
 
 ## Usage Notes
 
