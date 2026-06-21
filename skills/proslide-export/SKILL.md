@@ -1,49 +1,27 @@
 ---
 name: proslide-export
 description: |
-  ProSlide 导出子skill。当主skill `proslide` 已经获得用户确认 HTML 预览、确认讲稿需求和导出模式，并需要将 HTML 预览导出为 PPTX 时使用。支持“高清还原版”和“混合可编辑版”：前者使用高清 `.slide` 元素级截图，后者将文字和基础图形重建为 PowerPoint 原生可编辑对象。
+  ProSlide 导出子skill。当主skill `proslide` 需要将HTML预览导出为PPTX时使用。
+  触发条件：用户已确认HTML预览，要求生成PPTX文件。
 ---
 
 # ProSlide Export
 
-HTML → 高清还原版或混合可编辑版 PPTX。两种模式的目标不同：高清还原版优先视觉一致性，混合可编辑版优先后续修改能力。
+HTML → 高清截图 → PPTX。技术规范，禁止变通。
 
-## 使用前提
+## 导出流程
 
-只有同时满足以下条件，才允许导出：
+1. Playwright 打开本地 HTML 文件
+2. 等待字体和 CSS 完全渲染（`wait_for_timeout(1000)`）
+3. 定位 `.slide` 元素，元素级截图
+4. 创建 16:9 空白 PPT，插入截图铺满整页
+5. 保存 `.pptx`
 
-- 用户已确认 HTML 预览无需调整
-- 用户已确认是否需要讲稿
-- 若需要讲稿，讲稿语言和汇报时长已确认，讲稿已生成
-- 用户已明确选择：高清还原版 / 混合可编辑版 / 两版都要
-- HTML 文件可在浏览器中正常打开
-
-若任一条件不满足，回到主 `proslide` 的确认节点，禁止导出。
-
-## 模式 A：高清还原版
-
-目标：最大限度保留 HTML 的视觉效果。页面在 PPT 中作为整页高清图片，不承诺逐项编辑。
-
-### 首选方式：运行脚本
-
-优先使用仓库的 `src/export.py` 或当前安装环境中 `proslide-export` 自带的截图导出脚本，不要手写不一致的截图逻辑。
-
-脚本必须：
-
-1. 用 Playwright 打开 HTML。
-2. 等待字体、CSS 和图片加载完成。
-3. 定位每一个 `.slide` 元素。
-4. 逐页执行元素级 PNG 截图。
-5. 校验每页截图像素不低于 `2560×1440`。
-6. 创建 16:9 空白 PPTX，并将截图铺满整页。
-7. 输出导出摘要。
-
-### 截图强制参数
+## 截图强制参数
 
 ```python
 screenshot_config = {
-    "viewport": {"width": 1280, "height": 720},
-    "device_scale_factor": 3,      # 推荐3倍；最低2倍，禁止降低
+    "device_scale_factor": 2,      # 强制2倍，禁止降低
     "target_selector": ".slide",   # 强制元素截图，禁止body
     "full_page": False,            # 强制False
     "type": "png",                 # 强制PNG
@@ -51,91 +29,38 @@ screenshot_config = {
 }
 ```
 
-### 高清还原版验收标准
+## 正确代码模板
 
-- 使用 Playwright 渲染 HTML。
-- `viewport={"width": 1280, "height": 720}`。
-- `device_scale_factor >= 2`，推荐 `3`。
-- 对每个 `.slide` 元素逐页截图，禁止对 `body` 或整页截图后裁切。
-- 每页截图像素不得低于 `2560×1440`；推荐 `3840×2160`。
-- 图片加载完成、字体和 CSS 渲染完成后再截图。
-- 截图无裁切、无重复拼接、无模糊、无页间串页。
-- PPTX 页数与 `.slide` 元素数量一致。
-- PPTX 页面比例为 16:9，截图铺满整页且不变形。
+```python
+from playwright.sync_api import sync_playwright
+from pptx import Presentation
+from pptx.util import Inches
 
-## 模式 B：混合可编辑版
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page(
+        viewport={"width": 1280, "height": 720},
+        device_scale_factor=2,  # 强制2倍，禁止降低
+    )
+    page.goto(f"file://{html_path}")
+    page.wait_for_timeout(1000)
+    slide = page.query_selector(".slide")
+    screenshot_path = "slide.png"
+    slide.screenshot(path=screenshot_path, type="png", scale="device")
+    browser.close()
 
-目标：在尽量接近 HTML 预览的前提下，让常用内容可以在 PowerPoint 中直接修改。不得把整页截图或整页位图封装成 SVG 后冒充可编辑版。
-
-### 元素映射优先级
-
-按以下规则将 HTML/CSS 转换为 PPTX：
-
-1. **必须使用 PowerPoint 原生可编辑对象**
-   - 标题、正文、金句、数据标签、列表和表格文字 → 文本框或富文本。
-   - 背景、卡片、色块、边框、横线、圆点、状态标签、评分块和进度条 → 原生形状。
-   - 规则表格和矩阵 → 原生表格，或由原生文本框与形状组合重建。
-   - 简单柱状图、折线图、饼图且原始数据明确 → 优先使用 PowerPoint 原生图表。
-
-2. **可使用矢量图或高清图片**
-   - 复杂 SVG 图标、品牌 Logo、插画 → 优先使用独立 SVG。
-   - ECharts 等复杂图表、地图、关系图或特殊 CSS 效果 → 优先导出为独立 SVG；不支持 SVG 时使用透明背景高清 PNG。
-   - 图片必须按独立语义模块插入，禁止把整页内容合并为一张图片。
-
-3. **允许轻微视觉差异**
-   - PowerPoint 与浏览器的字体度量、行高、圆角、阴影和 SVG 渲染可能不同。
-   - 优先保证内容完整、层级清晰和可编辑性，再尽量贴近 HTML 的位置、字号、颜色与间距。
-
-### 实现要求
-
-- 优先使用 PptxGenJS 或等效的 PPTX 原生对象 API。
-- 使用 16:9 页面尺寸，并将 HTML 的 `1280×720` 坐标按统一比例映射到 PPT 坐标。
-- 保留文本语义和富文本锚点，不能把文字转成轮廓路径。
-- 基础形状必须可单独选中和修改颜色、尺寸、位置。
-- 复杂图表或特殊效果使用 SVG 或高清 PNG 时，应作为独立对象保留，避免覆盖其周围可编辑文字。
-- 元素数量很高时可以对重复装饰元素进行语义分组，但不能牺牲正文编辑能力。
-
-### 混合可编辑版验收标准
-
-- PPTX 页数和页面顺序与 HTML 一致。
-- 标题、正文、表格文字和关键数据可在 PowerPoint 中直接编辑。
-- 卡片、边框、色块、线条、进度条等基础形状可单独选中编辑。
-- 不存在整页位图或整页 SVG 覆盖页面内容。
-- 复杂图表和特殊效果保持清晰，SVG 优先；PNG 建议不低于目标显示尺寸的 2 倍像素。
-- 对导出的 PPTX 重新渲染，并与 HTML 预览进行视觉对比；检查缺字、换行异常、错位、重叠、溢出和颜色偏差。
-- 至少完成一次“渲染 → 发现问题 → 修复 → 再渲染”的验证循环。
-
-## 模式 C：两版都要
-
-分别输出两个文件，并在文件名中明确区分：
-
-- `*_高清还原版.pptx`
-- `*_混合可编辑版.pptx`
-
-向用户说明：高清还原版适合正式展示和视觉交付；混合可编辑版适合继续修改文字、表格、颜色和基础布局。
-
-## 失败恢复
-
-如果导出失败：
-
-1. 先读取主技能的 `references/failure-recovery.md`。
-2. 修复 HTML 路径、图片加载、字体加载、浏览器或 PPTX 生成依赖问题。
-3. 重新运行导出。
-4. 高清还原版禁止退回到整页截图裁切方案。
-5. 混合可编辑版若部分复杂模块无法原生重建，只允许将该模块降级为独立 SVG 或高清 PNG，禁止整页栅格化。
+prs = Presentation()
+prs.slide_width = Inches(13.333)
+prs.slide_height = Inches(7.5)
+blank_layout = prs.slide_layouts[6]
+s = prs.slides.add_slide(blank_layout)
+s.shapes.add_picture(screenshot_path, Inches(0), Inches(0), width=Inches(13.333))
+prs.save(output_path)
+```
 
 ## 禁止事项
 
 - ❌ `page.screenshot()` 直接截整页
-- ❌ 整页截图后按固定高度裁切成单页
-- ❌ 用 CSS `transform: scale()` 或 `zoom` 放大页面后再整页截图
 - ❌ `device_scale_factor < 2`
-- ❌ 截图像素低于 `2560×1440`
-- ❌ 未逐页定位 `.slide` 元素
-- ❌ CSS 或图片尚未加载完成前截图
-- ❌ 截图出现重复拼接、页面串页或裁切后仍继续导出
+- ❌ CSS 未加载完成前截图
 - ❌ 保留 `.page-footer` 导致页码出现在截图中
-- ❌ 用整页截图、整页 SVG 或位图描摹结果冒充混合可编辑版
-- ❌ 将正文转换成 SVG 路径，导致用户无法修改文字
-- ❌ 为追求像素一致而把所有对象栅格化
-- ❌ 未重新渲染混合可编辑版就直接交付
