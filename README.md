@@ -68,6 +68,27 @@ HTML 预览交付前必须执行四层防打回质检：
 - 明显留白必须通过语义信息图、版式重排或内容结构优化处理。
 - 禁止无意义渐变，核心观点条优先使用纯色浅底。
 
+## Logo Placement
+
+生成正式汇报页时，ProSlide 会优先在当前工作目录查找 logo 文件。使用前请把品牌 logo 放到本次 PPT 项目的工作文件夹中，推荐命名为：
+
+```text
+logo.png
+logo.jpg
+logo.jpeg
+logo.svg
+logo.webp
+```
+
+示例：如果本次 PPT 在 `/path/to/project` 下生成 HTML 和导出文件，请将 logo 放在 `/path/to/project/logo.png`。HTML 预览中应使用相对路径引用该文件，确保后续截图和 PPTX 导出时仍能正常加载。
+
+注意事项：
+
+- 优先使用透明底 PNG 或 SVG，避免白底图片在深色封面或深色页眉上突兀。
+- logo 应完整显示，不得拉伸变形、裁切主体或压到顶部横线。
+- 如果用户明确要求封面不放 logo，封面可以例外；内页仍按版式规则保留 logo 区域。
+- 若工作目录中没有 logo，应先提示用户补充或确认使用无 logo 版本，不要随意编造或从网络抓取品牌标识。
+
 ## Directory Structure
 
 ```text
