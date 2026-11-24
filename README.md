@@ -150,3 +150,14 @@ python scripts/install-skill-from-github.py \
 ## Repository
 
 GitHub: <https://github.com/KY2026AI/proslide>
+
+## English marketplace candidate
+
+English listing copy, onboarding, and the packaging command live beside this Chinese workflow. They do not replace it.
+
+- Listing copy: `marketplace/agensi-listing.en.md`
+- English usage map: `docs/english-onboarding.md`
+- Generic example preview: `examples/generic-english-preview/`
+- Build an upload-candidate ZIP: `python3 scripts/package_agensi_candidate.py`
+
+No release is published from this repository by that command. It only writes a local ZIP, a manifest, and a validation report.

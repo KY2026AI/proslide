@@ -1,0 +1,25 @@
+{
+  "renderer": "/usr/bin/google-chrome-stable",
+  "renderer_version": "Google Chrome 157.0.8103.50",
+  "device_scale_factor": 2,
+  "viewport": "1280x720",
+  "pptx_written": false,
+  "note": "Hand-authored HTML rendered locally. Not an agent transcript and not a PPTX export.",
+  "preview_sha256": "8274305c7ef1d16acc106aea5bf16fe2b41aa6aeafdd4579dc5420648f7329d1",
+  "slides": [
+    {
+      "file": "generic-english-preview-slide-1.png",
+      "bytes": 200302,
+      "width": 2560,
+      "height": 1440,
+      "sha256": "c4e2b02c5c8a831aeef6469aecb092ebcf50a5aaec31b5055466c954e58c19b0"
+    },
+    {
+      "file": "generic-english-preview-slide-2.png",
+      "bytes": 194771,
+      "width": 2560,
+      "height": 1440,
+      "sha256": "4da775ad29871f3c2b102f56980a655f265b59b7e92719f2e7f666e71c31e434"
+    }
+  ]
+}

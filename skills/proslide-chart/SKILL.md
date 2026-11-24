@@ -3,6 +3,7 @@ name: proslide-chart
 description: |
   ProSlide 图表设计子 skill。当主 skill `proslide` 涉及 ECharts 图表生成或图表审查时使用。
   触发条件：页面需要插入柱状图、折线图、饼图、堆积图、散点图、雷达图等数据可视化图表。
+  English: use for a bar, line, pie, stacked, scatter, or radar chart on a slide.
 ---
 
 # ProSlide Chart

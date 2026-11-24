@@ -30,6 +30,30 @@
       "prompt": "帮我把这段材料做成一页项目复盘PPT：项目上线延期2周，最后通过加缓存解决了。你直接生成预览就行。",
       "expected_output": "技能不能直接生成最终PPTX；应先补齐报告类型、语言、页数、是否诊断、是否延伸等确认项。生成HTML预览后，必须执行四层防打回质检，并在交付预览时说明已检查页面硬伤、版式逻辑、汇报内容、会议室10秒可读性。",
       "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Please make an English slide deck for a short progress review. No diagnosis, and do not add content beyond my notes.",
+      "expected_output": "English trigger coverage fixture, not a recorded model run. The skill should still confirm any missing gate, including report type, and must not export a PPTX before the HTML preview is confirmed.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "The HTML preview looks fine. Please write English speaker notes for a 5-minute update.",
+      "expected_output": "English interaction fixture. Speaker notes require an explicit language and duration. This prompt supplies both. It still must not export a PPTX until the HTML preview is confirmed as final.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Skip the HTML preview and export the PowerPoint now.",
+      "expected_output": "English interaction fixture. The skill must not export a PPTX before the HTML preview exists and the user confirms it. A direct PowerPoint request does not skip the confirmation gates.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Turn these notes into slides and a PPTX. You decide the page count.",
+      "expected_output": "English interaction fixture. Page count must be confirmed rather than assumed. The skill must not export a PPTX at this step.",
+      "files": []
     }
   ]
 }

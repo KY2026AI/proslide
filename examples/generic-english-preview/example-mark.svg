@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="102" height="62" viewBox="0 0 102 62" role="img" aria-labelledby="mark-title mark-desc">
+  <title id="mark-title">Example mark</title>
+  <desc id="mark-desc">Sample wordmark for a fictional preview. Not a brand logo.</desc>
+  <rect x="1.5" y="10.5" width="99" height="41" rx="6" fill="#F4F7F8" stroke="#1C2834" stroke-width="1.5"/>
+  <text x="51" y="36" text-anchor="middle" font-family="Inter, Liberation Sans, Noto Sans, sans-serif" font-size="12" font-weight="700" fill="#1C2834">EXAMPLE</text>
+</svg>
