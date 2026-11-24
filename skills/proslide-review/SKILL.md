@@ -3,6 +3,7 @@ name: proslide-review
 description: |
   ProSlide 内容审查子skill。当主skill `proslide` 需要进行内容诊断时使用。
   触发条件：用户素材需要内容审查、缺口识别、错别字检查。
+  English: use when the user asked for a content diagnosis or review before any HTML is written.
 ---
 
 # ProSlide Review

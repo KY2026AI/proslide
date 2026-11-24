@@ -3,6 +3,7 @@ name: proslide-extend
 description: |
   ProSlide 内容延伸子skill。当主skill `proslide` 确认用户需要延伸内容时使用。
   触发条件：用户素材过少，无法支撑完整页面结构，需要基于已有信息逻辑推导补充内容。
+  English: use when the user asked to extend thin source material. Do not invent facts.
 ---
 
 # ProSlide Extend

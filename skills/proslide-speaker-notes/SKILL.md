@@ -3,6 +3,7 @@ name: proslide-speaker-notes
 description: |
   ProSlide 讲稿生成子 skill。当主 skill `proslide` 在 HTML 预览确认阶段用户选择"需要生成讲稿"时触发。
   基于 PPT 页面结构、汇报对象、汇报目的等信息，生成适配现场口述的汇报讲稿。
+  English: use when the user asks for speaker notes or a spoken script. Confirm language and duration first.
 ---
 
 # ProSlide Speaker Notes

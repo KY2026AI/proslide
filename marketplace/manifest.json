@@ -1,0 +1,172 @@
+{
+  "package": "proslide-agensi-candidate",
+  "kind": "skill-pack",
+  "root_skill_md": false,
+  "root_skill_md_note": "Omitted on purpose. Agensi docs checked 2026-11-24 say two or more SKILL.md files form a pack and a root SKILL.md is not required.",
+  "docs_checked": [
+    "https://www.agensi.io/docs/packaging",
+    "https://www.agensi.io/docs/submit-on-the-website",
+    "https://www.agensi.io/docs/creator-faq",
+    "https://www.agensi.io/docs/what-you-can-sell"
+  ],
+  "skills": [
+    {
+      "path": "skills/proslide-chart/SKILL.md",
+      "name": "proslide-chart",
+      "description_chars": 188
+    },
+    {
+      "path": "skills/proslide-export/SKILL.md",
+      "name": "proslide-export",
+      "description_chars": 196
+    },
+    {
+      "path": "skills/proslide-extend/SKILL.md",
+      "name": "proslide-extend",
+      "description_chars": 180
+    },
+    {
+      "path": "skills/proslide-review/SKILL.md",
+      "name": "proslide-review",
+      "description_chars": 174
+    },
+    {
+      "path": "skills/proslide-speaker-notes/SKILL.md",
+      "name": "proslide-speaker-notes",
+      "description_chars": 217
+    },
+    {
+      "path": "skills/proslide/SKILL.md",
+      "name": "proslide",
+      "description_chars": 398
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1078,
+      "sha256": "2afe99c56fb98c43ccb3740d0586b37d2f0c8f78033fd29099235818f951630f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6690,
+      "sha256": "1982a1322e5663410dee53c3480e8669cf0311fba241188c821243dcdf6ff025"
+    },
+    {
+      "path": "docs/english-onboarding.md",
+      "bytes": 9448,
+      "sha256": "372f45db57627801a92b75a6b2ee756529eebd37c8267099e5ffa2d13ffccb6a"
+    },
+    {
+      "path": "examples/generic-english-preview/PROMPT.md",
+      "bytes": 928,
+      "sha256": "2e18238d1437e8b72c1b187ef011ec8ea89559dc8b8a5c01a14548d53e467e57"
+    },
+    {
+      "path": "examples/generic-english-preview/example-mark.svg",
+      "bytes": 552,
+      "sha256": "11d003da17be5f977613fe80c58b61e94aa71842e8e6bc49113b78e377a47e6a"
+    },
+    {
+      "path": "examples/generic-english-preview/preview.html",
+      "bytes": 9096,
+      "sha256": "8274305c7ef1d16acc106aea5bf16fe2b41aa6aeafdd4579dc5420648f7329d1"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 39,
+      "sha256": "22ce085473960fb0976f9adacc68341f654fefe1e0e030815737a136c2fa38d9"
+    },
+    {
+      "path": "skills/proslide-chart/SKILL.md",
+      "bytes": 1937,
+      "sha256": "f3c97a5b63997b306a5aca712b4397f6613d89283569ce01ad41008ba4fa43d9"
+    },
+    {
+      "path": "skills/proslide-export/SKILL.md",
+      "bytes": 2179,
+      "sha256": "26448e28a65e2323bab1bc98785829e1336cb57e9bc61a1b34c71451ed061091"
+    },
+    {
+      "path": "skills/proslide-export/scripts/export_html_to_pptx.py",
+      "bytes": 2952,
+      "sha256": "1e5af73c4123a554d9fc63b72e47b4014e1c14d7f55f26647b9834274fc0f0f3"
+    },
+    {
+      "path": "skills/proslide-extend/SKILL.md",
+      "bytes": 1946,
+      "sha256": "1b7ee645951078754debd9b09a091400dcce5696e149d4ae162f08d5a34bcef6"
+    },
+    {
+      "path": "skills/proslide-review/SKILL.md",
+      "bytes": 5386,
+      "sha256": "742836c6c65d0d42eba62d9d4536290ec2f40a4bc96f557891bb160b090b5866"
+    },
+    {
+      "path": "skills/proslide-speaker-notes/SKILL.md",
+      "bytes": 5049,
+      "sha256": "f45ecfcb0b92bc509064116c7c32c6d37a92994933c10c04cec8976f1064fb2f"
+    },
+    {
+      "path": "skills/proslide/SKILL.md",
+      "bytes": 14624,
+      "sha256": "1cc4fd94f0bfd1ebbe3ed22721e3f8c35dd03f46764ee54f1372d678b216e552"
+    },
+    {
+      "path": "skills/proslide/references/failure-recovery.md",
+      "bytes": 2176,
+      "sha256": "20578dd3ea429cd048c79d3507e17616fa26cfa816b3f3ba784c58f80346c614"
+    },
+    {
+      "path": "skills/proslide/references/layout-pattern-library.md",
+      "bytes": 6481,
+      "sha256": "b49248c392e872512d5cab18818a92857524c2a3f749947b9332697fefc62bca"
+    },
+    {
+      "path": "skills/proslide/references/layout-rules.md",
+      "bytes": 12519,
+      "sha256": "f1bdafe217b651b961b06edb7f32661ed99ce36a6eaeaf2ec6598509323d9134"
+    },
+    {
+      "path": "skills/proslide/references/preview-qa.md",
+      "bytes": 10429,
+      "sha256": "cd0dd3465bbf5cc235cacfb7593c6308c77548547ada3e1118c9dbe54fd1bcc6"
+    },
+    {
+      "path": "src/export.py",
+      "bytes": 2952,
+      "sha256": "1e5af73c4123a554d9fc63b72e47b4014e1c14d7f55f26647b9834274fc0f0f3"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "docs/INTEGRATION.md",
+      "reason": "Public integration recipes are not referenced by the skills and are omitted from the buyer package."
+    },
+    {
+      "path": "examples/base-slide.html",
+      "reason": "Existing starter references logo.png and the default blue styling. The generic English fixture is the sample in this package."
+    },
+    {
+      "path": "skills/proslide/evals/evals.json",
+      "reason": "Repo-only trigger fixtures. Omitted so they are not injected with the skill folder. They are not a workflow resource."
+    },
+    {
+      "path": "marketplace/agensi-listing.en.md",
+      "reason": "Seller-facing listing copy for the owner to paste. Not an instruction for the buyer agent."
+    },
+    {
+      "path": "scripts/package_agensi_candidate.py",
+      "reason": "Maintainer packaging command. Not needed at runtime."
+    },
+    {
+      "path": "scripts/render_generic_preview.py",
+      "reason": "Maintainer screenshot command. The preview PNG is a review artifact, not a package input."
+    },
+    {
+      "path": "tests/test_release_candidate.py",
+      "reason": "Maintainer tests."
+    }
+  ],
+  "self": "PACKAGING-MANIFEST.json is added after this file list. The validation report inventories every ZIP member, including this manifest."
+}

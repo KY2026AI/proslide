@@ -3,11 +3,14 @@ name: proslide-export
 description: |
   ProSlide 导出子skill。当主skill `proslide` 需要将HTML预览导出为PPTX时使用。
   触发条件：用户已确认HTML预览，要求生成PPTX文件。
+  English: use only after the user has confirmed the HTML preview and asks to export a PPTX or PowerPoint file.
 ---
 
 # ProSlide Export
 
 HTML → 高清截图 → PPTX。技术规范，禁止变通。
+
+可执行脚本：`scripts/export_html_to_pptx.py`。它与仓库根目录的 `src/export.py` 是同一份代码，必须单独运行，不能依赖技能包里的其他文件。
 
 ## 导出流程
 
